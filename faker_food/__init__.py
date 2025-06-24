@@ -23,10 +23,10 @@ class FoodProvider(BaseProvider):
     """
 
     def dish_description(self):
-        return generate_dish()
+        return choice(dish_descriptions)
 
     def dish(self):
-        return choice(dishes)
+        return generate_dish()
 
     def ethnic_category(self):
         return choice(ethnic_categories)
