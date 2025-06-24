@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "faker_food"
+name = "faker_maytok_food"
 version = "0.1.0"
 description = "Food related provider for the Python Faker library"
-authors = ["Mark Adams <madams74@gmail.com>"]
+authors = ["Giancarlo Ventura <giancarlo@maytok.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "faker_food" }]
-repository = "https://github.com/madams74/faker_food"
-homepage = "https://github.com/madams74/faker_food"
+packages = [{ include = "faker_maytok_food" }]
+repository = "https://github.com/khanmaytok/faker_maytok_food"
+homepage = "https://github.com/khanmaytok/faker_maytok_food"
 keywords = ["faker", "data", "test", "mock", "generator", "food"]
 classifiers = [
    "Intended Audience :: Developers",
