@@ -1,20 +1,49 @@
-"""
-List of dish_descriptions
-"""
+import random
 
-dish_descriptions = [
-    "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.",
-    "Three egg omelet with Roquefort cheese, chives, and ham. With a side of roasted potatoes, and your choice of toast or croissant.",
-    "Three egg whites with spinach, mushrooms, caramelized onions, tomatoes and low-fat feta cheese. With herbed quinoa, and your choice of rye or whole-grain toast.",
-    "Smoked salmon, poached eggs, diced red onions and Hollandaise sauce on an English muffin. With a side of roasted potatoes.",
-    "Fresh parsley, Italian sausage, shallots, garlic, sun-dried tomatoes and mozzarella cheese in an all-butter crust. With a side of mixed fruits.",
-    "Thick slices of French toast bread, brown sugar, half-and-half and vanilla, topped with powdered sugar. With two eggs served any style, and your choice of smoked bacon or smoked ham.",
-    "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.",
-    "Breaded fried chicken with waffles, and a side of maple syrup.",
-    "Two butter croissants of your choice (plain, almond or cheese). With a side of herb butter or house-made hazelnut spread.",
-    "28-day aged 300g USDA Certified Prime Ribeye, rosemary-thyme garlic butter, with choice of two sides.",
-    "Breaded fried chicken with waffles. Served with maple syrup.",
-    "Fresh Norwegian salmon, lightly brushed with our herbed Dijon mustard sauce, with choice of two sides.",
-    "Creamy mascarpone cheese and custard layered between espresso and rum soaked house-made ladyfingers, topped with Valrhona cocoa powder.",
-    "Granny Smith apples mixed with brown sugar and butter filling, in a flaky all-butter crust, with ice cream.",
+proteins = ["chicken", "salmon", "eggs", "egg whites", "beef", "shrimp", "tofu", "pork", "lamb", "duck"]
+cheeses = ["Emmental", "Roquefort", "feta", "mozzarella", "mascarpone", "cheddar", "gouda", "ricotta"]
+vegetables = ["spinach", "mushrooms", "onions", "tomatoes", "avocados", "zucchini", "bell peppers", "kale"]
+herbs_spices = ["cilantro", "chives", "rosemary", "thyme", "garlic", "shallots", "paprika", "cumin"]
+grains = ["roasted potatoes", "quinoa", "rice", "couscous", "polenta", "bread", "croissant", "toast"]
+sauces = ["Hollandaise", "pesto", "teriyaki", "BBQ", "cream cheese", "Dijon mustard", "soy glaze"]
+preparations = ["fried", "poached", "scrambled", "grilled", "roasted", "baked", "stir-fried", "steamed"]
+premium_details = ["28-day aged", "USDA Certified Prime", "Norwegian", "organic", "free-range", "wild-caught"]
+sides = ["roasted potatoes", "mixed greens", "mashed sweet potatoes", "grilled vegetables", "candied yams"]
+
+templates = [
+    "{prep} {protein} with {cheese} cheese, {veg} and {herb}. With a side of {side}.",
+    "{premium} {protein}, {prep} in {sauce}, served with {grain} and {side}.",
+    "Fresh {protein} with {veg}, {herb}, and {cheese} in an {grain} crust. With {side}.",
+    "{protein} {prep} with {sauce}, topped with {veg} and {cheese}. Served with {grain}.",
+    "{grain}-crusted {protein} with {veg}, {herb}, and {sauce}. With {side}.",
+    "Creamy {cheese} sauce over {prep} {protein}, {veg}, and {grain}. Topped with {herb}.",
+    "{premium} {protein} brushed with {sauce}, {prep} to perfection. Served with {side} and {grain}.",
+    "House-made {grain} filled with {protein}, {veg}, and {cheese}. Topped with {sauce}.",
+    "{protein} sautéed with {herb}, {veg}, and {cheese}. Served over {grain} with {sauce}.",
+    "{prep} {protein} layered with {veg}, {cheese}, and {sauce} in a {grain} crust. With {side}."
 ]
+
+def generate_dish_descriptions():
+    protein = random.choice(proteins)
+    cheese = random.choice(cheeses)
+    veg = ", ".join(random.sample(vegetables, random.randint(1, 3)))
+    herb = random.choice(herbs_spices)
+    grain = random.choice(grains)
+    sauce = random.choice(sauces)
+    prep = random.choice(preparations)
+    premium = random.choice(premium_details)
+    side = random.choice(sides)
+
+       
+    template = random.choice(templates)
+    return template.format(**{
+        "protein": protein,
+        "cheese": cheese,
+        "veg": veg,
+        "herb": herb,
+        "grain": grain,
+        "sauce": sauce,
+        "prep": prep,
+        "premium": premium,
+        "side": side
+    })
