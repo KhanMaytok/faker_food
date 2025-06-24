@@ -2,7 +2,7 @@ from random import choice
 
 from faker.providers import BaseProvider
 
-from .dish_descriptions import dish_descriptions
+from .dish_descriptions import generate_dish_descriptions
 from .dishes import generate_dish
 from .ethnic_categories import ethnic_categories
 from .fruits import fruits
@@ -23,7 +23,7 @@ class FoodProvider(BaseProvider):
     """
 
     def dish_description(self):
-        return choice(dish_descriptions)
+        return generate_dish_descriptions()
 
     def dish(self):
         return generate_dish()
